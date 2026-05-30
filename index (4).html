@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aircon Maintenance Management</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <div id="loginPage">
+   <h1>Air Conditioner Maintenance Management System</h1>
+<p>Manage and monitor maintenance records efficiently.</p>
+<h2>Login</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    
+</div>
+
+<div id="mainSystem" style="display:none;">
+<h1>Air Conditioner Maintenance Management System</h1>
+
+<div class="dashboard">
+  <button onclick="logout()">Logout</button>
+  <div class="card"><h3>Total Records</h3><span id="totalRecords">0</span></div>
+</div>
+
+<div class="form-container">
+  <input id="personnel" placeholder="Personnel In Charge">
+  <input id="brand" placeholder="Brand">
+  <input id="equipmentType" placeholder="Equipment Type">
+  <input id="serialNumber" placeholder="Serial Number">
+  <input id="location" placeholder="Location">
+  <input id="inspectionDate" type="date">
+  <input id="inspector" placeholder="Inspector">
+  <select id="status">
+    <option>Good</option>
+    <option>Needs Repair</option>
+    <option>Under Maintenance</option>
+  </select>
+  <textarea id="remarks" placeholder="Remarks"></textarea>
+  <button onclick="saveRecord()">Save Record</button>
+</div>
+
+<div class="actions">
+  <input id="search" placeholder="Search..." onkeyup="loadRecords()">
+  <button onclick="exportPDF()">Export PDF</button>
+  <button onclick="exportCSV()">Export CSV</button>
+  <button onclick="window.print()">Print</button>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Date</th><th>Inspector</th><th>Status</th><th>Equipment</th><th>Remarks</th><th>Actions</th>
+</tr>
+</thead>
+<tbody id="recordsTable"></tbody>
+</table>
+</div>
+
+<script src="app.js"></script>
+ </div>
+</body>
+</html>
